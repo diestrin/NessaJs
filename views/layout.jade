@@ -1,0 +1,53 @@
+!!! 5
+html(lang='en')
+	head
+
+		meta(charset='utf-8')
+
+		title= title
+
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description', content='Description')
+		meta(name='author', content='Content')
+
+		//- Stylesheet Files
+		link(rel='stylesheet', type='text/css', href='/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='/css/style.css')
+		link(rel='stylesheet', type='text/css', href='/css/bootstrap-responsive.min.css')
+
+		//if lt IE 9
+			script(type='text/javascript', src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+
+	body
+
+		//- Begin Navbar
+		.navbar.navbar-fixed-top
+			.navbar-inner
+				.container
+					a(class='btn btn-navbar', data-toggle='collapse', data-target='.nav-collapse')
+						span(class='icon-bar')
+						span(class='icon-bar')
+						span(class='icon-bar')
+					a(class='brand', href='/') NessaJs
+					.nav-collapse
+						ul.nav.pull-right
+							- if (active == 'view') 
+								li.active
+									a(href="/view") View
+							- else 
+								li 
+									a(href="/view") View
+							- if (active == 'deep') 
+								li.active
+									a(href="/view") Deep View
+							- else 
+								li 
+									a(href="/view/deep") Deep View
+
+		//- Markup located at views			
+		.container!= body
+
+		//- Javascript Files
+		script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+		script(type='text/javascript', src='/js/bootstrap.min.js')
+		script(type='text/javascript', src='/js/main.js')
