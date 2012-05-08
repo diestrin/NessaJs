@@ -4,7 +4,7 @@
 
 NessaJs is a boilerplate for app development in [Node.js](http://nodejs.org/) and [mongoDB](http://www.mongodb.org/) 
 
-Using [expressjs](http://expressjs.com/) MVC Framework for node, NessaJs also comes packed with the following utilities:
+Using [express](http://expressjs.com/) MVC Framework for node, NessaJs also comes packed with the following utilities:
 
 *	[MongoDB-Wrapper](https://github.com/idottv/node-mongodb-wrapper): A wrapper for mongoDB as close as possible to the native javascript driver.
 *	[jade](http://jade-lang.com/): An HTML node template engine
