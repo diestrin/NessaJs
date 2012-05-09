@@ -3,17 +3,20 @@ var models = require('../models/model.js');
 
 exports.index = function(req, res) {
 
-	function renderData(error,data){
-		if(!!data)
+	function renderData(error, data){
+		if(!!data) {
+
 			res.render('index', {
 				title: "NessaJs",
 				locals: {
-					data: data,
+					data: data.app,
 					active: "home"
 				}
 			});
-		else
-			errorPage(req, res, error);
+			
+		} else {
+			errorView(req, res, error);
+		}
 	}
 
 	models.getInfo(renderData);
@@ -31,19 +34,19 @@ exports.view = function(req, res) {
 
 exports.deep = function(req, res) {
 	res.render('deep', {
-		title: "NessaJs",
+		title: "NessaJs Deep View",
 		locals: {
 			active: "deep"
 		}
 	});
 };
 
-errorPage = function(req, res, errorData){
+errorView = function(req, res, error){
 	res.render('error', {
-		title: "NessaJs",
+		title: "NessaJs Error",
 		locals: {
-			data: errorData,
+			error: error,
 			active: "error"
 		}
 	});
-}
+};
