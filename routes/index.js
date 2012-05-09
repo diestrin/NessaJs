@@ -3,14 +3,17 @@ var models = require('../models/model.js');
 
 exports.index = function(req, res) {
 
-	function renderData(data){
-		res.render('index', {
-			title: "NessaJs",
-			locals: {
-				data: data,
-				active: "home"
-			}
-		});
+	function renderData(error,data){
+		if(!!data)
+			res.render('index', {
+				title: "NessaJs",
+				locals: {
+					data: data,
+					active: "home"
+				}
+			});
+		else
+			errorPage(req, res, error);
 	}
 
 	models.getInfo(renderData);
@@ -34,3 +37,13 @@ exports.deep = function(req, res) {
 		}
 	});
 };
+
+errorPage = function(req, res, errorData){
+	res.render('error', {
+		title: "NessaJs",
+		locals: {
+			data: errorData,
+			active: "error"
+		}
+	});
+}
