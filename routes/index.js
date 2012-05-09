@@ -19,7 +19,7 @@ exports.index = function(req, res) {
 		}
 	}
 
-	models.getInfo(renderData);
+	models.getInfo('', renderData);
 
 };
 
